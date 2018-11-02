@@ -9,6 +9,8 @@ Module Maya
     Public randomizer As New Random
     Public randomNumber As Integer
 
+    Public sn As Integer
+
     Public Sub connect()
         If sqlConnection.State = ConnectionState.Closed Then
             Try
@@ -40,6 +42,7 @@ Module Maya
 
     'Generate random number for row lock
     Public Sub generateRandomRow()
+        Main.pbxSlotMachine.Visible = True
         randomNumber = randomizer.Next(1, 5) 'Set to 1 to (n+1) in order to cover every available row
         checkIfPicked(randomNumber)
     End Sub
@@ -67,7 +70,7 @@ Module Maya
                 While sqlDataReader.Read()
                     row = sqlDataReader.Item("rowID")
                     studentNumber = sqlDataReader.Item("studentNumber")
-                    MessageBox.Show(row.ToString + " " + studentNumber.ToString)
+                    'MessageBox.Show(row.ToString + " " + studentNumber.ToString)
                 End While
                 closeEverything()   'Close this method's reader and connection first before exiting
                 setWinner(row, studentNumber)    'Call method for setting the winning row
@@ -125,49 +128,66 @@ Module Maya
 
             sqlCommand.ExecuteNonQuery()
             closeEverything()
+
+            sn = studentNumber
+            effectors()
         Catch ex As Exception
             MessageBox.Show(ex.ToString, "Error Occurred", MessageBoxButtons.OK, MessageBoxIcon.Error)
             closeEverything()
         End Try
+    End Sub
 
+    Public Sub effectors()
         'Begin effects for randomization
         'MessageBox.Show((studentNumber.ToString).Length) 'Return student number length for testing purposes
+        Main.rouletteTimer.Enabled = True   'Start timer
+
+        If Main.lblTimerDisplay.Text = 11 Then
+            Main.btnReset.Enabled = True
+            Main.rouletteTimer.Enabled = False
+            Main.lblTimerDisplay.Text = 0
+            Main.pbxSlotMachine.Image = My.Resources.slot_machine_win_state
+            Main.pbxCongrats.Visible = True
+        End If
 
         'Get year substring
-        Dim student As String = studentNumber.ToString
+        Dim student As String = sn.ToString
         Dim yearSubstring As String = student.Substring(0, 4)
-        'Set year string picture box image
-        Select Case yearSubstring
-            Case "2010"
-                Main.pbxYearString.Image = My.Resources._2010
+        'Mapped to timer
+        If Main.lblTimerDisplay.Text = 5 Then
+            'Set year string picture box image
+            Select Case yearSubstring
+                Case "2010"
+                    Main.pbxYearString.Image = My.Resources._2010
 
-            Case "2011"
-                Main.pbxYearString.Image = My.Resources._2011
+                Case "2011"
+                    Main.pbxYearString.Image = My.Resources._2011
 
-            Case "2012"
-                Main.pbxYearString.Image = My.Resources._2012
+                Case "2012"
+                    Main.pbxYearString.Image = My.Resources._2012
 
-            Case "2013"
-                Main.pbxYearString.Image = My.Resources._2013
+                Case "2013"
+                    Main.pbxYearString.Image = My.Resources._2013
 
-            Case "2014"
-                Main.pbxYearString.Image = My.Resources._2014
+                Case "2014"
+                    Main.pbxYearString.Image = My.Resources._2014
 
-            Case "2015"
-                Main.pbxYearString.Image = My.Resources._2015
+                Case "2015"
+                    Main.pbxYearString.Image = My.Resources._2015
 
-            Case "2016"
-                Main.pbxYearString.Image = My.Resources._2016
+                Case "2016"
+                    Main.pbxYearString.Image = My.Resources._2016
 
-            Case "2017"
-                Main.pbxYearString.Image = My.Resources._2017
+                Case "2017"
+                    Main.pbxYearString.Image = My.Resources._2017
 
-            Case "2018"
-                Main.pbxYearString.Image = My.Resources._2018
-        End Select
+                Case "2018"
+                    Main.pbxYearString.Image = My.Resources._2018
+            End Select
+        End If
 
         'Get student number substring at specific positions
-        'Remap this to timer tick for more thrills
+        'Mapped to timer
         Try
             Dim digits(5) As String
             Dim ctr As Integer = 0
@@ -179,12 +199,23 @@ Module Maya
 
             'Set individual digits to individual boxes
             Dim resourcePath = "C:\Users\Mark Nolledo\Documents\Visual Studio 2015\Projects\Randomizer\Randomizer\Resources\"
-            Main.pbxDigit01.ImageLocation = resourcePath + digits(0) + ".png"
-            Main.pbxDigit02.ImageLocation = resourcePath + digits(1) + ".png"
-            Main.pbxDigit03.ImageLocation = resourcePath + digits(2) + ".png"
-            Main.pbxDigit04.ImageLocation = resourcePath + digits(3) + ".png"
-            Main.pbxDigit05.ImageLocation = resourcePath + digits(4) + ".png"
+            Dim clockTimer = Main.lblTimerDisplay.Text
+            Select Case clockTimer
+                Case "6"
+                    Main.pbxDigit01.ImageLocation = resourcePath + digits(0) + ".png"
 
+                Case "7"
+                    Main.pbxDigit02.ImageLocation = resourcePath + digits(1) + ".png"
+
+                Case "8"
+                    Main.pbxDigit03.ImageLocation = resourcePath + digits(2) + ".png"
+
+                Case "9"
+                    Main.pbxDigit04.ImageLocation = resourcePath + digits(3) + ".png"
+
+                Case "10"
+                    Main.pbxDigit05.ImageLocation = resourcePath + digits(4) + ".png"
+            End Select
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try

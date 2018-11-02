@@ -190,4 +190,16 @@
   <data name="_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="congrats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\congrats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot_machine.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot_machine_win_state" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot_machine_win_state.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="congrats_rev2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\congrats_rev2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

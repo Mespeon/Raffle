@@ -23,7 +23,9 @@ Partial Class Main
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.pnlControls = New System.Windows.Forms.Panel()
+        Me.btnReset = New System.Windows.Forms.Button()
         Me.lblDBConnMarker = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnDraw = New System.Windows.Forms.Button()
@@ -35,6 +37,9 @@ Partial Class Main
         Me.pbxDigit05 = New System.Windows.Forms.PictureBox()
         Me.pnlStudentNumbers = New System.Windows.Forms.Panel()
         Me.rouletteTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.lblTimerDisplay = New System.Windows.Forms.Label()
+        Me.pbxSlotMachine = New System.Windows.Forms.PictureBox()
+        Me.pbxCongrats = New System.Windows.Forms.PictureBox()
         Me.pnlControls.SuspendLayout()
         CType(Me.pbxYearString, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxDigit01, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -43,11 +48,14 @@ Partial Class Main
         CType(Me.pbxDigit04, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxDigit05, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlStudentNumbers.SuspendLayout()
+        CType(Me.pbxSlotMachine, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxCongrats, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlControls
         '
         Me.pnlControls.BackgroundImage = Global.Randomizer.My.Resources.Resources.raffles_background_rightbar_rev2
+        Me.pnlControls.Controls.Add(Me.btnReset)
         Me.pnlControls.Controls.Add(Me.lblDBConnMarker)
         Me.pnlControls.Controls.Add(Me.btnExit)
         Me.pnlControls.Controls.Add(Me.btnDraw)
@@ -57,6 +65,23 @@ Partial Class Main
         Me.pnlControls.Name = "pnlControls"
         Me.pnlControls.Size = New System.Drawing.Size(150, 700)
         Me.pnlControls.TabIndex = 0
+        '
+        'btnReset
+        '
+        Me.btnReset.BackColor = System.Drawing.Color.Transparent
+        Me.btnReset.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnReset.Enabled = False
+        Me.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.Gold
+        Me.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnReset.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReset.ForeColor = System.Drawing.Color.White
+        Me.btnReset.Location = New System.Drawing.Point(17, 566)
+        Me.btnReset.Name = "btnReset"
+        Me.btnReset.Size = New System.Drawing.Size(121, 48)
+        Me.btnReset.TabIndex = 10
+        Me.btnReset.Text = "Reset"
+        Me.btnReset.UseVisualStyleBackColor = False
         '
         'lblDBConnMarker
         '
@@ -104,6 +129,7 @@ Partial Class Main
         'pbxYearString
         '
         Me.pbxYearString.BackColor = System.Drawing.Color.Transparent
+        Me.pbxYearString.Image = Global.Randomizer.My.Resources.Resources._0000
         Me.pbxYearString.InitialImage = Global.Randomizer.My.Resources.Resources._0000
         Me.pbxYearString.Location = New System.Drawing.Point(0, 30)
         Me.pbxYearString.Margin = New System.Windows.Forms.Padding(0)
@@ -115,6 +141,7 @@ Partial Class Main
         'pbxDigit01
         '
         Me.pbxDigit01.BackColor = System.Drawing.Color.Transparent
+        Me.pbxDigit01.Image = CType(resources.GetObject("pbxDigit01.Image"), System.Drawing.Image)
         Me.pbxDigit01.InitialImage = Nothing
         Me.pbxDigit01.Location = New System.Drawing.Point(200, 30)
         Me.pbxDigit01.Margin = New System.Windows.Forms.Padding(0)
@@ -126,6 +153,7 @@ Partial Class Main
         'pbxDigit02
         '
         Me.pbxDigit02.BackColor = System.Drawing.Color.Transparent
+        Me.pbxDigit02.Image = CType(resources.GetObject("pbxDigit02.Image"), System.Drawing.Image)
         Me.pbxDigit02.InitialImage = Nothing
         Me.pbxDigit02.Location = New System.Drawing.Point(250, 30)
         Me.pbxDigit02.Margin = New System.Windows.Forms.Padding(0)
@@ -137,6 +165,7 @@ Partial Class Main
         'pbxDigit03
         '
         Me.pbxDigit03.BackColor = System.Drawing.Color.Transparent
+        Me.pbxDigit03.Image = CType(resources.GetObject("pbxDigit03.Image"), System.Drawing.Image)
         Me.pbxDigit03.InitialImage = Nothing
         Me.pbxDigit03.Location = New System.Drawing.Point(300, 30)
         Me.pbxDigit03.Margin = New System.Windows.Forms.Padding(0)
@@ -148,6 +177,7 @@ Partial Class Main
         'pbxDigit04
         '
         Me.pbxDigit04.BackColor = System.Drawing.Color.Transparent
+        Me.pbxDigit04.Image = CType(resources.GetObject("pbxDigit04.Image"), System.Drawing.Image)
         Me.pbxDigit04.InitialImage = Nothing
         Me.pbxDigit04.Location = New System.Drawing.Point(350, 30)
         Me.pbxDigit04.Margin = New System.Windows.Forms.Padding(0)
@@ -159,6 +189,7 @@ Partial Class Main
         'pbxDigit05
         '
         Me.pbxDigit05.BackColor = System.Drawing.Color.Transparent
+        Me.pbxDigit05.Image = CType(resources.GetObject("pbxDigit05.Image"), System.Drawing.Image)
         Me.pbxDigit05.InitialImage = Nothing
         Me.pbxDigit05.Location = New System.Drawing.Point(400, 30)
         Me.pbxDigit05.Margin = New System.Windows.Forms.Padding(0)
@@ -185,12 +216,48 @@ Partial Class Main
         '
         Me.rouletteTimer.Interval = 1000
         '
+        'lblTimerDisplay
+        '
+        Me.lblTimerDisplay.AutoSize = True
+        Me.lblTimerDisplay.Location = New System.Drawing.Point(12, 9)
+        Me.lblTimerDisplay.Name = "lblTimerDisplay"
+        Me.lblTimerDisplay.Size = New System.Drawing.Size(19, 21)
+        Me.lblTimerDisplay.TabIndex = 15
+        Me.lblTimerDisplay.Text = "0"
+        Me.lblTimerDisplay.Visible = False
+        '
+        'pbxSlotMachine
+        '
+        Me.pbxSlotMachine.BackColor = System.Drawing.Color.Transparent
+        Me.pbxSlotMachine.Image = CType(resources.GetObject("pbxSlotMachine.Image"), System.Drawing.Image)
+        Me.pbxSlotMachine.Location = New System.Drawing.Point(415, 37)
+        Me.pbxSlotMachine.Name = "pbxSlotMachine"
+        Me.pbxSlotMachine.Size = New System.Drawing.Size(123, 222)
+        Me.pbxSlotMachine.TabIndex = 21
+        Me.pbxSlotMachine.TabStop = False
+        Me.pbxSlotMachine.Visible = False
+        '
+        'pbxCongrats
+        '
+        Me.pbxCongrats.BackColor = System.Drawing.Color.Transparent
+        Me.pbxCongrats.Image = Global.Randomizer.My.Resources.Resources.congrats_rev2
+        Me.pbxCongrats.Location = New System.Drawing.Point(329, 379)
+        Me.pbxCongrats.Name = "pbxCongrats"
+        Me.pbxCongrats.Size = New System.Drawing.Size(288, 76)
+        Me.pbxCongrats.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.pbxCongrats.TabIndex = 22
+        Me.pbxCongrats.TabStop = False
+        Me.pbxCongrats.Visible = False
+        '
         'Main
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = Global.Randomizer.My.Resources.Resources.raffles_background_rev2
         Me.ClientSize = New System.Drawing.Size(1000, 700)
+        Me.Controls.Add(Me.pbxCongrats)
+        Me.Controls.Add(Me.pbxSlotMachine)
+        Me.Controls.Add(Me.lblTimerDisplay)
         Me.Controls.Add(Me.pnlStudentNumbers)
         Me.Controls.Add(Me.pnlControls)
         Me.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -212,7 +279,10 @@ Partial Class Main
         CType(Me.pbxDigit04, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbxDigit05, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlStudentNumbers.ResumeLayout(False)
+        CType(Me.pbxSlotMachine, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxCongrats, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -228,4 +298,8 @@ Partial Class Main
     Friend WithEvents btnExit As Button
     Friend WithEvents lblDBConnMarker As Label
     Friend WithEvents rouletteTimer As Timer
+    Friend WithEvents lblTimerDisplay As Label
+    Friend WithEvents pbxSlotMachine As PictureBox
+    Friend WithEvents btnReset As Button
+    Friend WithEvents pbxCongrats As PictureBox
 End Class

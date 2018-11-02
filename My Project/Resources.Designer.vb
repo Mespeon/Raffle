@@ -263,6 +263,26 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property congrats() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("congrats", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property congrats_rev2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("congrats_rev2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property raffles_background() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("raffles_background", resourceCulture)
@@ -296,6 +316,26 @@ Namespace My.Resources
         Friend ReadOnly Property raffles_background_rightbar_rev2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("raffles_background_rightbar_rev2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property slot_machine() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("slot_machine", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property slot_machine_win_state() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("slot_machine_win_state", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

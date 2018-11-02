@@ -122,6 +122,16 @@ Randomizer
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Randomizer.My.Resources.Resources.congrats">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Randomizer.My.Resources.Resources.congrats_rev2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Randomizer.My.Resources.Resources.raffles_background">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -138,6 +148,16 @@ Randomizer
 </summary>
 </member>
 <member name="P:Randomizer.My.Resources.Resources.raffles_background_rightbar_rev2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Randomizer.My.Resources.Resources.slot_machine">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Randomizer.My.Resources.Resources.slot_machine_win_state">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
