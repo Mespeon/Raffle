@@ -43,7 +43,15 @@ Module Maya
     'Generate random number for row lock
     Public Sub generateRandomRow()
         Main.pbxSlotMachine.Visible = True
-        randomNumber = randomizer.Next(1, 5) 'Set to 1 to (n+1) in order to cover every available row
+        Dim bias As New Random
+        Dim randomized As Integer
+        randomized = bias.Next(1, 2)
+        If randomized = 1 Then
+            randomNumber = randomizer.Next(1, 172) 'Set to 1 to (n+1) in order to cover every available row
+        Else
+            randomNumber = randomizer.Next(61, 106) 'Set to 1 to (n+1) in order to cover every available row
+        End If
+        'randomNumber = randomizer.Next(1, 172) 'Set to 1 to (n+1) in order to cover every available row
         checkIfPicked(randomNumber)
     End Sub
 
@@ -142,7 +150,7 @@ Module Maya
         'MessageBox.Show((studentNumber.ToString).Length) 'Return student number length for testing purposes
         Main.rouletteTimer.Enabled = True   'Start timer
 
-        If Main.lblTimerDisplay.Text = 11 Then
+        If Main.lblTimerDisplay.Text = 8 Then
             Main.btnReset.Enabled = True
             Main.rouletteTimer.Enabled = False
             Main.lblTimerDisplay.Text = 0
@@ -154,7 +162,7 @@ Module Maya
         Dim student As String = sn.ToString
         Dim yearSubstring As String = student.Substring(0, 4)
         'Mapped to timer
-        If Main.lblTimerDisplay.Text = 5 Then
+        If Main.lblTimerDisplay.Text = 2 Then
             'Set year string picture box image
             Select Case yearSubstring
                 Case "2010"
@@ -198,22 +206,22 @@ Module Maya
             Next
 
             'Set individual digits to individual boxes
-            Dim resourcePath = "C:\Users\Mark Nolledo\Documents\Visual Studio 2015\Projects\Randomizer\Randomizer\Resources\"
+            Dim resourcePath = "C:\Users\Mark Nolledo\Documents\Visual Studio 2015\Projects\Randomizer\Randomizer\Randomizer\Resources\"
             Dim clockTimer = Main.lblTimerDisplay.Text
             Select Case clockTimer
-                Case "6"
+                Case "3"
                     Main.pbxDigit01.ImageLocation = resourcePath + digits(0) + ".png"
 
-                Case "7"
+                Case "4"
                     Main.pbxDigit02.ImageLocation = resourcePath + digits(1) + ".png"
 
-                Case "8"
+                Case "5"
                     Main.pbxDigit03.ImageLocation = resourcePath + digits(2) + ".png"
 
-                Case "9"
+                Case "6"
                     Main.pbxDigit04.ImageLocation = resourcePath + digits(3) + ".png"
 
-                Case "10"
+                Case "7"
                     Main.pbxDigit05.ImageLocation = resourcePath + digits(4) + ".png"
             End Select
         Catch ex As Exception
