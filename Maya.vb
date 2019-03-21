@@ -43,14 +43,14 @@ Module Maya
     'Generate random number for row lock
     Public Sub generateRandomRow()
         Main.pbxSlotMachine.Visible = True
-        Dim bias As New Random
-        Dim randomized As Integer
-        randomized = bias.Next(1, 2)
-        If randomized = 1 Then
-            randomNumber = randomizer.Next(1, 172) 'Set to 1 to (n+1) in order to cover every available row
-        Else
-            randomNumber = randomizer.Next(61, 106) 'Set to 1 to (n+1) in order to cover every available row
-        End If
+
+
+
+
+
+
+
+
         'randomNumber = randomizer.Next(1, 172) 'Set to 1 to (n+1) in order to cover every available row
         checkIfPicked(randomNumber)
     End Sub
